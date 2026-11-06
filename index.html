@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bastion Security — Protection, Engineered for What Matters</title>
+<meta name="description" content="Bastion Security delivers intelligent private security: 24/7 monitoring, surveillance, access control and rapid response across Nigeria.">
+<meta name="theme-color" content="#0879FF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ 1. TOKENS ============ */
+:root{
+  --navy:#1B1A3A; --navy-2:#2C2A4C; --blue:#0879FF; --blue-2:#4DA3FF; --cyan:#22D3EE;
+  --ink:#14132B; --muted:#5E5C7A; --line:#E6E8F2; --bg:#F6F8FD; --white:#fff;
+  --grad:linear-gradient(135deg,#0879FF 0%,#5B4BFF 100%);
+  --grad-dark:linear-gradient(160deg,#1B1A3A 0%,#2C2A4C 55%,#25306B 100%);
+  --r:22px; --shadow:0 18px 50px -18px rgba(27,26,58,.28); --shadow-sm:0 6px 22px -10px rgba(27,26,58,.25);
+  --font:'Plus Jakarta Sans',system-ui,sans-serif; --display:'Sora','Plus Jakarta Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--font);color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+svg{display:block}
+.container{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:110px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--grad);border-radius:2px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}
+.lead{color:var(--muted);font-size:1.08rem;max-width:620px}
+.section-head{margin-bottom:56px}
+.section-head.center{text-align:center}
+.section-head.center .lead{margin-inline:auto}
+
+/* ============ 2. BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:700;font-size:.95rem;border:2px solid transparent;transition:transform .3s,box-shadow .3s,background .3s,color .3s;cursor:pointer}
+.btn svg{width:18px;height:18px;transition:transform .3s}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 12px 28px -10px rgba(8,121,255,.7)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 34px -10px rgba(8,121,255,.8)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff;backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:#fff;color:var(--navy);transform:translateY(-3px)}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{transform:translateY(-3px);box-shadow:0 18px 34px -12px rgba(0,0,0,.4)}
+
+/* ============ 3. HEADER ============ */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--navy)}
+.logo-mark{width:38px;height:38px;border-radius:12px;background:var(--grad);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.logo-mark svg{width:20px;height:20px}
+.nav-links{display:flex;gap:34px;font-weight:600;font-size:.95rem;color:var(--muted)}
+.nav-links a{position:relative;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--grad);transition:width .3s}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a:hover::after{width:100%}
+.nav .btn{padding:11px 22px;font-size:.88rem}
+#menu-toggle{display:none}
+.burger{display:none;width:44px;height:44px;border-radius:12px;background:var(--bg);cursor:pointer;place-items:center;flex-direction:column;justify-content:center;gap:5px}
+.burger span{width:20px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+
+/* ============ 4. HERO ============ */
+.hero{background:var(--grad-dark);color:#fff;position:relative;overflow:hidden;padding:100px 0 120px}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+.hero::before{width:520px;height:520px;background:#0879FF;top:-160px;right:-120px;animation:float 12s ease-in-out infinite}
+.hero::after{width:380px;height:380px;background:#6A4BFF;bottom:-160px;left:-100px;animation:float 14s ease-in-out infinite reverse}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 75%)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:.82rem;font-weight:600;margin-bottom:26px}
+.pill i{width:8px;height:8px;border-radius:50%;background:#34D399;box-shadow:0 0 0 0 rgba(52,211,153,.7);animation:pulse 2s infinite}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);margin-bottom:22px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#7DC0FF,#22D3EE);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#C9CBEA;font-size:1.15rem;max-width:520px;margin-bottom:36px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:46px}
+.hero-stats{display:flex;gap:38px;flex-wrap:wrap}
+.hero-stats strong{display:block;font-family:var(--display);font-size:1.9rem}
+.hero-stats span{color:#A9ACD6;font-size:.85rem}
+.visual{position:relative;aspect-ratio:1/1;max-width:520px;margin-inline:auto;width:100%}
+.radar{position:absolute;inset:6%;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:radial-gradient(circle,rgba(8,121,255,.28),rgba(8,121,255,.04) 70%);display:grid;place-items:center}
+.radar::before,.radar::after{content:"";position:absolute;border-radius:50%;border:1px dashed rgba(255,255,255,.2)}
+.radar::before{inset:16%}.radar::after{inset:32%}
+.sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(34,211,238,.5),transparent 25%);animation:spin 5s linear infinite}
+.shield{position:relative;z-index:2;width:34%;aspect-ratio:1;border-radius:30%;background:var(--grad);display:grid;place-items:center;box-shadow:0 0 70px rgba(8,121,255,.8);animation:bob 5s ease-in-out infinite}
+.shield svg{width:52%;height:52%}
+.blip{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(34,211,238,.8);animation:pulse 2.4s infinite}
+.float-card{position:absolute;z-index:3;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.95);color:var(--ink);box-shadow:var(--shadow);font-size:.82rem;font-weight:700;line-height:1.3;animation:bob 6s ease-in-out infinite}
+.float-card small{display:block;color:var(--muted);font-weight:500}
+.float-card .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#E8F2FF;color:var(--blue)}
+.float-card .ic svg{width:20px;height:20px}
+.fc1{top:6%;left:-2%}.fc2{bottom:12%;right:-3%;animation-delay:-2s}.fc3{bottom:-2%;left:8%;animation-delay:-4s}
+
+/* ============ 5. TRUST BAR ============ */
+.trust{padding:34px 0;border-bottom:1px solid var(--line);background:#fff}
+.trust-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px 30px;align-items:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.trust-row span:first-child{color:var(--ink);text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}
+.trust-row li{display:flex;align-items:center;gap:8px}
+.trust-row svg{width:18px;height:18px;color:var(--blue)}
+
+/* ============ 6. SERVICES ============ */
+.services{background:var(--bg)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:#fff;border-radius:var(--r);padding:36px 32px;border:1px solid var(--line);box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:transform .4s,box-shadow .4s,border-color .4s}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.card:hover{transform:translateY(-10px);box-shadow:var(--shadow);border-color:transparent}
+.card:hover::before{transform:scaleX(1)}
+.card-icon{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;background:#E8F2FF;color:var(--blue);margin-bottom:24px;transition:.4s}
+.card:hover .card-icon{background:var(--grad);color:#fff;transform:rotate(-6deg) scale(1.06)}
+.card-icon svg{width:28px;height:28px}
+.card h3{font-size:1.28rem;margin-bottom:12px}
+.card p{color:var(--muted);font-size:.97rem;margin-bottom:20px}
+.card a{display:inline-flex;gap:8px;font-weight:700;font-size:.9rem;color:var(--blue);transition:gap .3s}
+.card a:hover{gap:14px}
+
+/* ============ 7. FEATURES ============ */
+.features-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
+.feat-list{display:grid;gap:22px;margin-top:34px}
+.feat{display:flex;gap:18px;padding:20px;border-radius:18px;transition:background .3s,transform .3s}
+.feat:hover{background:var(--bg);transform:translateX(8px)}
+.feat .ck{flex:none;width:44px;height:44px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#fff}
+.feat .ck svg{width:20px;height:20px}
+.feat h3{font-size:1.08rem;margin-bottom:4px}
+.feat p{color:var(--muted);font-size:.95rem}
+.dash{background:var(--grad-dark);border-radius:28px;padding:26px;color:#fff;box-shadow:var(--shadow);position:relative;transform:rotate(1.5deg);transition:transform .5s}
+.dash:hover{transform:rotate(0)}
+.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;font-weight:700}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3)}
+.live{font-size:.75rem;padding:4px 12px;border-radius:99px;background:rgba(52,211,153,.18);color:#6EE7B7}
+.cams{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.cam{aspect-ratio:16/10;border-radius:14px;background:linear-gradient(135deg,#34397A,#1F2250);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.cam::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 2px,transparent 2px 5px);animation:scan 4s linear infinite}
+.cam b{position:absolute;left:10px;top:8px;font-size:.68rem;letter-spacing:.08em}
+.cam b::before{content:"● ";color:#F87171}
+.cam svg{position:absolute;inset:auto 0 0 0;width:100%;height:55%;opacity:.35}
+.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.meter{background:rgba(255,255,255,.08);border-radius:14px;padding:14px;font-size:.75rem;color:#C9CBEA}
+.meter strong{display:block;color:#fff;font-family:var(--display);font-size:1.35rem}
+
+/* ============ 8. ABOUT ============ */
+.about{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.about::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(8,121,255,.4),transparent 70%);top:-250px;left:-200px}
+.about-wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about .lead{color:#B8BBE0;margin-bottom:18px}
+.about h2{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.stat{padding:30px 26px;border-radius:var(--r);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transition:.4s}
+.stat:hover{background:rgba(255,255,255,.12);transform:translateY(-6px)}
+.stat strong{display:block;font-family:var(--display);font-size:2.6rem;background:linear-gradient(90deg,#fff,#7DC0FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:#B8BBE0;font-size:.92rem}
+.values{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.values li{padding:9px 18px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-size:.85rem;font-weight:600}
+
+/* ============ 9. TESTIMONIALS ============ */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.quote{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px 30px;box-shadow:var(--shadow-sm);position:relative;transition:.4s}
+.quote:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.quote:nth-child(2){background:var(--grad);color:#fff;border:none;transform:translateY(-14px)}
+.quote:nth-child(2):hover{transform:translateY(-22px)}
+.quote:nth-child(2) p,.quote:nth-child(2) small{color:#E3EEFF}
+.stars{color:#FBBF24;letter-spacing:3px;margin-bottom:14px}
+.quote p{color:var(--muted);margin-bottom:26px;font-size:1rem}
+.who{display:flex;align-items:center;gap:14px}
+.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--navy-2)}
+.quote:nth-child(2) .avatar{background:rgba(255,255,255,.25)}
+.who strong{display:block;font-size:.95rem}
+.who small{color:var(--muted)}
+
+/* ============ 10. CTA ============ */
+.cta{padding:0 0 110px}
+.cta-box{background:var(--grad);border-radius:36px;padding:80px 40px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 30px 70px -26px rgba(8,121,255,.7)}
+.cta-box::before,.cta-box::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.22)}
+.cta-box::before{width:420px;height:420px;top:-210px;left:-110px}
+.cta-box::after{width:560px;height:560px;bottom:-330px;right:-130px}
+.cta-box>*{position:relative;z-index:1}
+.cta-box h2{font-size:clamp(2rem,4.4vw,3.2rem);max-width:700px;margin:0 auto 16px}
+.cta-box p{color:#E3EEFF;max-width:540px;margin:0 auto 34px;font-size:1.08rem}
+.cta-box .hero-cta{justify-content:center;margin:0}
+
+/* ============ 11. FOOTER ============ */
+footer{background:var(--ink);color:#B4B6D6;padding:80px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:44px;margin-bottom:56px}
+footer .logo{color:#fff;margin-bottom:18px}
+footer h4{color:#fff;font-family:var(--display);font-size:1rem;margin-bottom:18px}
+footer li{margin-bottom:11px;font-size:.93rem}
+footer a{transition:color .25s,padding .25s}
+footer li a:hover{color:#fff;padding-left:6px}
+.social{display:flex;gap:10px;margin-top:22px}
+.social a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:.3s}
+.social a:hover{background:var(--blue);transform:translateY(-4px)}
+.social svg{width:18px;height:18px;color:#fff}
+.contact li{display:flex;gap:12px;align-items:flex-start}
+.contact svg{flex:none;width:18px;height:18px;margin-top:4px;color:var(--blue-2)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.85rem}
+.foot-bottom div{display:flex;gap:22px}
+
+/* ============ 12. ANIMATIONS ============ */
+@keyframes float{50%{transform:translate(30px,40px)}}
+@keyframes bob{50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes scan{to{transform:translateY(30px)}}
+@keyframes pulse{70%{box-shadow:0 0 0 14px rgba(34,211,238,0)}100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero-inner>div:first-child>*{animation:rise .9s both}
+.hero-inner>div:first-child>*:nth-child(2){animation-delay:.1s}
+.hero-inner>div:first-child>*:nth-child(3){animation-delay:.2s}
+.hero-inner>div:first-child>*:nth-child(4){animation-delay:.3s}
+.hero-inner>div:first-child>*:nth-child(5){animation-delay:.4s}
+@supports (animation-timeline:view()){
+  .card,.quote,.stat,.feat,.dash,.section-head{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ============ 13. RESPONSIVE ============ */
+@media (max-width:1020px){
+  section{padding:84px 0}
+  .hero-inner,.features-wrap,.about-wrap{grid-template-columns:1fr;gap:56px}
+  .cards,.t-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .visual{max-width:440px}
+  .dash{transform:none}
+}
+@media (max-width:820px){
+  .burger{display:flex}
+  .nav>.btn{display:none}
+  .nav-links{position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow);max-height:0;overflow:hidden;transition:max-height .4s}
+  .nav-links a{padding:18px 24px;border-top:1px solid var(--line);color:var(--ink)}
+  .nav-links a::after{display:none}
+  #menu-toggle:checked~.nav-links{max-height:420px}
+  #menu-toggle:checked~.burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  #menu-toggle:checked~.burger span:nth-child(2){opacity:0}
+  #menu-toggle:checked~.burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+@media (max-width:640px){
+  section{padding:70px 0}
+  .hero{padding:64px 0 90px}
+  .cards,.t-grid,.foot-grid{grid-template-columns:1fr}
+  .quote:nth-child(2){transform:none}
+  .hero-cta .btn,.cta-box .btn{width:100%;justify-content:center}
+  .hero-stats{gap:26px}
+  .trust-row{justify-content:flex-start}
+  .stats{grid-template-columns:1fr 1fr;gap:12px}
+  .stat{padding:22px 18px}.stat strong{font-size:2rem}
+  .fc1{left:0}.fc2{right:0}
+  .float-card{padding:10px 14px;font-size:.74rem}
+  .cta-box{padding:56px 22px;border-radius:26px}
+  .foot-bottom{flex-direction:column}
+  .meters{grid-template-columns:1fr 1fr}.meters .meter:last-child{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo" aria-label="Bastion Security home">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      Bastion
+    </a>
+    <input type="checkbox" id="menu-toggle" aria-label="Toggle menu">
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#features">Why Bastion</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Clients</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <label for="menu-toggle" class="burger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    <a href="#contact" class="btn btn-primary">Get Started Today</a>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="grid-bg"></div>
+  <div class="container hero-inner">
+    <div>
+      <span class="pill"><i></i> Monitoring centre online · 24/7/365</span>
+      <h1>Security, <em>engineered</em> for what matters most.</h1>
+      <p>Intelligent surveillance, access control and rapid-response teams, unified in one platform and trusted by thousands of families and businesses across Nigeria.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Let’s Get Started <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a href="#services" class="btn btn-ghost">Explore Services</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>1,000+</strong><span>Trained professionals</span></div>
+        <div><strong>52+</strong><span>Cities covered</span></div>
+        <div><strong>5,000+</strong><span>Families protected</span></div>
+      </div>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <div class="radar">
+        <div class="sweep"></div>
+        <div class="shield"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <span class="blip" style="top:20%;left:62%"></span>
+        <span class="blip" style="top:68%;left:22%;animation-delay:-1s"></span>
+        <span class="blip" style="top:74%;left:70%;animation-delay:-1.8s"></span>
+      </div>
+      <div class="float-card fc1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><div>Live surveillance<small>128 cameras active</small></div></div>
+      <div class="float-card fc2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/></svg></span><div>Avg. response<small>Under 6 minutes</small></div></div>
+      <div class="float-card fc3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><div>Access secured<small>All zones locked</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<div class="trust">
+  <div class="container">
+    <ul class="trust-row">
+      <li><span>Built on trust</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Licensed &amp; insured</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Vetted personnel</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Encrypted data</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Ethics-first service</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Our Services</span>
+      <h2>Delivering security solutions that fit your life.</h2>
+      <p class="lead">From a single home to a multi-site corporate campus, we design protection around your needs and your budget.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></div>
+        <h3>Residential Security</h3>
+        <p>Personalised protection for homes and estates, with smart cameras, alarms and trained guards keeping your family safe.</p>
+        <a href="#contact">Learn more →</a>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/></svg></div>
+        <h3>Commercial Protection</h3>
+        <p>End-to-end security for offices, retail and industrial facilities, from perimeter control to staff screening.</p>
+        <a href="#contact">Learn more →</a>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h1l2-3h8l2 3h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <h3>Smart Surveillance</h3>
+        <p>HD and night-vision CCTV with AI-powered motion detection and instant alerts delivered straight to your phone.</p>
+        <a href="#contact">Learn more →</a>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
+        <h3>Access Control</h3>
+        <p>Biometric, card and mobile entry systems with real-time logs so you always know who comes and goes.</p>
+        <a href="#contact">Learn more →</a>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 21a7 7 0 0 1 14 0M16 4.5a3.5 3.5 0 0 1 0 7M22 21a7 7 0 0 0-4-6.3"/></svg></div>
+        <h3>Event Security</h3>
+        <p>Specialised crowd management and VIP protection for weddings, conferences, concerts and corporate gatherings.</p>
+        <a href="#contact">Learn more →</a>
+      </article>
+      <article class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>24/7 Monitoring &amp; Response</h3>
+        <p>Our command centre watches every alert around the clock and dispatches response teams within minutes.</p>
+        <a href="#contact">Learn more →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features">
+  <div class="container features-wrap">
+    <div>
+      <span class="eyebrow">Why Bastion</span>
+      <h2>Stay steps ahead with security innovation.</h2>
+      <p class="lead">Our focus on technology means state-of-the-art systems tailored to your needs, managed from one simple platform.</p>
+      <div class="feat-list">
+        <div class="feat"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><div><h3>Swift response, round the clock</h3><p>Every alert is verified and answered by trained personnel in minutes, day or night.</p></div></div>
+        <div class="feat"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><div><h3>Seamlessly integrated</h3><p>Cameras, access control and alarms connect effortlessly. Control it all from anywhere.</p></div></div>
+        <div class="feat"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><div><h3>Custom solutions</h3><p>From a corporate facility system to simple home surveillance, built to your budget.</p></div></div>
+      </div>
+    </div>
+    <div class="dash" aria-hidden="true">
+      <div class="dash-top"><div class="dots"><i></i><i></i><i></i></div><span>Command Dashboard</span><span class="live">● LIVE</span></div>
+      <div class="cams">
+        <div class="cam"><b>CAM 01 · GATE</b><svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 50V30l20-10 25 12 30-18 25 12v24z" fill="#7DC0FF"/></svg></div>
+        <div class="cam"><b>CAM 02 · LOBBY</b><svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 50V25h30v-8h40v14h30v19z" fill="#7DC0FF"/></svg></div>
+        <div class="cam"><b>CAM 03 · PARKING</b><svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 50V32h18v-8h22v8h25v-12h35v30z" fill="#7DC0FF"/></svg></div>
+        <div class="cam"><b>CAM 04 · PERIMETER</b><svg viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0 50 20 22l20 16 20-24 40 36z" fill="#7DC0FF"/></svg></div>
+      </div>
+      <div class="meters">
+        <div class="meter"><strong>99.9%</strong>Uptime</div>
+        <div class="meter"><strong>0</strong>Open alerts</div>
+        <div class="meter"><strong>&lt;6 min</strong>Response</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container about-wrap">
+    <div>
+      <span class="eyebrow" style="color:#7DC0FF">About Bastion</span>
+      <h2>Unrivalled expertise, built on decades of trust.</h2>
+      <p class="lead">Bastion Security was founded on a simple belief: everyone deserves to feel safe. Our seasoned professionals bring decades of private-security experience to every assignment, from personalised residential cover to comprehensive commercial solutions.</p>
+      <p class="lead">We leave no stone unturned, combining disciplined people with modern technology and an unwavering commitment to ethics.</p>
+      <ul class="values"><li>Integrity</li><li>Precision</li><li>Innovation</li><li>Accountability</li><li>Care</li></ul>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>1,000+</strong><span>Security professionals</span></div>
+      <div class="stat"><strong>52+</strong><span>Cities served</span></div>
+      <div class="stat"><strong>5,000+</strong><span>Families protected</span></div>
+      <div class="stat"><strong>24/7</strong><span>Live monitoring centre</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Client Stories</span>
+      <h2>Trusted by individuals and businesses alike.</h2>
+      <p class="lead">Real peace of mind, from the people who rely on us every day.</p>
+    </div>
+    <div class="t-grid">
+      <figure class="quote">
+        <div class="stars">★★★★★</div>
+        <p>“Since Bastion installed our cameras and access control, I sleep soundly. The team responded to a false alarm in minutes and treated it seriously.”</p>
+        <figcaption class="who"><span class="avatar">AO</span><div><strong>Adaeze Okonkwo</strong><small>Homeowner, Lekki</small></div></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="stars">★★★★★</div>
+        <p>“One dashboard for all three of our warehouses. Professional guards, clear reporting and a monitoring centre that never misses a thing.”</p>
+        <figcaption class="who"><span class="avatar">TB</span><div><strong>Tunde Bakare</strong><small>Operations Director, LogiPrime</small></div></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="stars">★★★★★</div>
+        <p>“They secured our 800-guest wedding flawlessly. Discreet, courteous and incredibly organised. We’ll hire them for every event.”</p>
+        <figcaption class="who"><span class="avatar">FM</span><div><strong>Fatima Mohammed</strong><small>Event Planner, Abuja</small></div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Safeguard what matters most. Start today.</h2>
+      <p>Talk to a security expert and get a free, tailor-made assessment for your home or business.</p>
+      <div class="hero-cta">
+        <a href="mailto:hello@bastionsecurity.example" class="btn btn-light">Get a Free Assessment <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a href="tel:+2348000000000" class="btn btn-ghost">Call +234 800 000 0000</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#home" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span>Bastion</a>
+        <p style="max-width:300px;font-size:.93rem">Safeguard what matters most. Intelligent private security for homes, businesses and events across Nigeria.</p>
+        <div class="social">
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="#about">About us</a></li><li><a href="#features">Why Bastion</a></li><li><a href="#testimonials">Client stories</a></li><li><a href="#">Careers</a></li></ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="#services">Residential</a></li><li><a href="#services">Commercial</a></li><li><a href="#services">Surveillance</a></li><li><a href="#services">Event security</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>14 Admiralty Way, Lekki Phase 1, Lagos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+2348000000000">+234 800 000 0000</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:hello@bastionsecurity.example">hello@bastionsecurity.example</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Bastion Security. All rights reserved.</span>
+      <div><a href="#">Terms</a><a href="#">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
